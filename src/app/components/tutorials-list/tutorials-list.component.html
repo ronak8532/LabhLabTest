@@ -1,0 +1,68 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>ESP32_Test</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let tutorial of tutorials; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveTutorial(tutorial, i)"
+      >
+        {{ tutorial.key }}
+      </li>
+    </ul>
+
+    <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+      Remove All
+    </button> -->
+  </div>
+  <div class="col-md-6" *ngIf="currentTutorial && currentTutorial.key === 'Double'">
+    <h4>{{currentTutorial.key}}</h4>
+    <ul class="list-group">
+      <li class="list-group-item">
+        Data1 - {{ currentTutorial.Data1 }}
+      </li>
+      <li class="list-group-item">
+        Data2 - {{ currentTutorial.Data2 }}
+      </li>
+      <li class="list-group-item">
+        Data3 - {{ currentTutorial.Data3 }}
+      </li>
+      <li class="list-group-item">
+        Data4 - {{ currentTutorial.Data4 }}
+      </li>
+      <li class="list-group-item">
+        Data5 - {{ currentTutorial.Data5 }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6" *ngIf="currentTutorial && currentTutorial.key === 'Int'">
+    <h4>{{currentTutorial.key}}</h4>
+    <ul class="list-group">
+      <li class="list-group-item">
+        Data - {{ currentTutorial.Data }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6" *ngIf="currentTutorial && currentTutorial.key === 'float'">
+    <h4>{{currentTutorial.key}}</h4>
+    <ul class="list-group">
+      <li class="list-group-item">
+        Data5 - {{ currentTutorial.Data5 }}
+      </li>
+    </ul>
+  </div>
+  <!-- <div class="col-md-12">
+    <div *ngIf="currentTutorial">
+      <app-tutorial-details
+        (refreshList)="refreshList()"
+        [tutorial]="currentTutorial"
+      ></app-tutorial-details>
+    </div>
+
+    <div *ngIf="!currentTutorial">
+      <br />
+      <p>Please click on a Tutorial...</p>
+    </div>
+  </div> -->
+</div>
